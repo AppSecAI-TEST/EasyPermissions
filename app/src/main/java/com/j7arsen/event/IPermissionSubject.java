@@ -4,11 +4,11 @@ package com.j7arsen.event;
  * Created by arsen on 21.03.17.
  */
 
-public interface ISubject {
+public interface IPermissionSubject {
 
-    void addObserver(IObserver iObserver);
+    void addObserver(IPermissionObserver iObserver);
 
-    void removeObserver(IObserver iObserver);
+    void removeObserver(IPermissionObserver iObserver);
 
     void removeAllObservers();
 

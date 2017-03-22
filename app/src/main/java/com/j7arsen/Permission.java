@@ -3,15 +3,15 @@ package com.j7arsen;
 import android.content.Context;
 import android.os.Build;
 
-import com.j7arsen.event.IObserver;
-import com.j7arsen.event.ObservableController;
+import com.j7arsen.event.IPermissionObserver;
+import com.j7arsen.event.PermissionObservableController;
 import com.j7arsen.event.PermissionEvent;
 
 /**
  * Created by arsen on 21.03.17.
  */
 
-public class Permission implements IObserver {
+public class Permission implements IPermissionObserver {
 
     private PermissionListener mPermissionListener;
     private String[] mPermissions;
@@ -92,7 +92,7 @@ public class Permission implements IObserver {
 
     public class Builder {
         private Builder() {
-            ObservableController.getInstance().addObserver(Permission.this);
+            PermissionObservableController.getInstance().addObserver(Permission.this);
         }
 
         public Builder setPermissionListener(PermissionListener permissionListener) {
@@ -143,7 +143,7 @@ public class Permission implements IObserver {
 
     @Override
     public void onEvent(PermissionEvent event) {
-        ObservableController.getInstance().removeObserver(this);
+        PermissionObservableController.getInstance().removeObserver(this);
         if (event.isHasPermission()) {
             mPermissionListener.onPermissionAllow();
         } else {

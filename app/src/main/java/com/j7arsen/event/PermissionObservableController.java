@@ -6,32 +6,32 @@ import java.util.ArrayList;
  * Created by arsen on 21.03.17.
  */
 
-public class ObservableController implements ISubject{
+public class PermissionObservableController implements IPermissionSubject {
 
-    private static ObservableController mInstance;
+    private static PermissionObservableController mInstance;
 
-    private ArrayList<IObserver> mObservers;
+    private ArrayList<IPermissionObserver> mObservers;
 
-    private ObservableController() {
+    private PermissionObservableController() {
         mObservers = new ArrayList<>();
     }
 
-    public static ObservableController getInstance(){
+    public static PermissionObservableController getInstance(){
         if(mInstance == null){
-            mInstance = new ObservableController();
+            mInstance = new PermissionObservableController();
         }
         return mInstance;
     }
 
     @Override
-    public void addObserver(IObserver iObserver) {
+    public void addObserver(IPermissionObserver iObserver) {
         if (!mObservers.contains(iObserver)) {
             mObservers.add(iObserver);
         }
     }
 
     @Override
-    public void removeObserver(IObserver iObserver) {
+    public void removeObserver(IPermissionObserver iObserver) {
         if (iObserver != null) {
             final int i = mObservers.indexOf(iObserver);
             if (i >= 0) {

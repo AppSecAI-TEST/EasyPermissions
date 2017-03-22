@@ -18,7 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.WindowManager;
 
-import com.j7arsen.event.ObservableController;
+import com.j7arsen.event.PermissionObservableController;
 import com.j7arsen.event.PermissionEvent;
 
 import java.util.ArrayList;
@@ -141,13 +141,13 @@ public class TransparentPermissionActivity extends AppCompatActivity {
     }
 
     private void permissionGranted() {
-        ObservableController.getInstance().notifyEvent(new PermissionEvent(true, null));
+        PermissionObservableController.getInstance().notifyEvent(new PermissionEvent(true, null));
         finish();
         overridePendingTransition(0, 0);
     }
 
     private void permissionDenied(ArrayList<String> deniedpermissions) {
-        ObservableController.getInstance().notifyEvent(new PermissionEvent(false, deniedpermissions));
+        PermissionObservableController.getInstance().notifyEvent(new PermissionEvent(false, deniedpermissions));
         finish();
         overridePendingTransition(0, 0);
     }
