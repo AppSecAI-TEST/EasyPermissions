@@ -24,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         };
-        Permission.newBuilder().setPermissionListener(permissionlistener).setUserMessage("Lalala").setDenyMessage("Denied").setIsPresentSettingButton(true).setSettingText("Sett").setCloseText("Closer").setPermissions(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE).build().checkPermissions(this);
+        Permission.newBuilder().setPermissionListener(permissionlistener).setUserMessage("Lalala").setDenyMessage("Denied").setIsPresentSettingButton(true).setSettingText("Sett").setCloseText("Closer").setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA).build().checkPermissions(this);
     }
 }
